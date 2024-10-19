@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,6 +7,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject Player3;
 
     public int MaxCount;
+
+    //目時作
+    public bool fadeImage1;
+    public bool fadeImage2;
+    public bool fadeImage3;
 
     private int Count;
 
@@ -19,12 +23,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public Chara character = Chara.Player1;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -57,13 +55,25 @@ public class PlayerController : MonoBehaviour
                     switch(character)
                     {
                         case Chara.Player1:
-                            Instantiate(Player1, worldPoint, Quaternion.identity);
+                            if(!fadeImage1)
+                            {
+                                Instantiate(Player1, worldPoint, Quaternion.identity);
+                                fadeImage1 = true; // Image1をフェードイン
+                            }
                             break;
                         case Chara.Player2:
-                            Instantiate(Player2, worldPoint, Quaternion.identity);
+                            if (!fadeImage2)
+                            {
+                                Instantiate(Player2, worldPoint, Quaternion.identity);
+                                fadeImage2 = true; // Image2をフェードイン
+                            }
                             break;
                         case Chara.Player3:
-                            Instantiate(Player3, worldPoint, Quaternion.identity);
+                            if (!fadeImage3)
+                            {
+                                Instantiate(Player3, worldPoint, Quaternion.identity);
+                                fadeImage3 = true; // Image3をフェードイン
+                            }
                             break;
                     }
                     Count++;
