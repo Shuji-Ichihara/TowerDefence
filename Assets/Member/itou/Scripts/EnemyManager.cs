@@ -71,13 +71,17 @@ public class EnemyManager : MonoBehaviour
             _TransmissonManager._Hp--;
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Player1Attack"))
+        if (other.gameObject.CompareTag("Attack1"))
         {
-            _Hp = 0;
+            _Hp -= 60;
         }
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Attack2"))
         {
-            Destroy(_Player);
+            _Hp -= 30;
+        }
+        if (other.gameObject.CompareTag("Attack3"))
+        {
+            _Hp -= 120;
         }
     }
 }
