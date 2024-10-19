@@ -28,9 +28,6 @@ public class ExsamplePlayre : MonoBehaviour
             fadeImage3 = true; // Image3をフェードイン
         }
 
-        if(Input.GetMouseButtonDown(0))
-        {
 
-        }
     }
 }
