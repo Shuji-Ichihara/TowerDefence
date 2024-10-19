@@ -14,7 +14,7 @@ public class ExsamplePlayre : MonoBehaviour
 
     void Update()
     {
-        // 例えば、キー入力でフラグを切り替える
+        // 各兵士のスポーンキー
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             fadeImage1 = true; // Image1をフェードイン
