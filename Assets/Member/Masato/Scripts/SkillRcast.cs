@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ public class SkillRcast : MonoBehaviour
 {
     [SerializeField]
     private Image imageComponent; // フェードインさせるImage
-    public ExsamplePlayre fadeFlags; // フラグ管理スクリプト
+    public PlayerController fadeFlags; // フラグ管理スクリプト
     [SerializeField]
     private float fadeDuration = 5f; // フェードにかける時間
     [SerializeField]
