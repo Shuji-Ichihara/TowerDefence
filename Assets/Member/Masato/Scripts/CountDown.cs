@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
     [SerializeField]
-    private Text countdownText;  // TextƒIƒuƒWƒFƒNƒg‚ğInspector‚Åİ’è
-    private float timeRemaining = 60f;  // 60•b‚ÌƒJƒEƒ“ƒgƒ_ƒEƒ“
+    private Text countdownText;  // Textã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Inspectorã§è¨­å®š
+    private float timeRemaining = 60f;  // 60ç§’ã®ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³
     private bool timerRunning = false;
 
     void Start()
     {
-        // ƒJƒEƒ“ƒgƒ_ƒEƒ“‚ğƒXƒ^[ƒg
+        // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã‚’ã‚¹ã‚¿ãƒ¼ãƒˆ
         timerRunning = true;
     }
 
@@ -22,14 +22,14 @@ public class CountDown : MonoBehaviour
         {
             if (timeRemaining > 0)
             {
-                // c‚èŠÔ‚ğŒ¸‚ç‚·
+                // æ®‹ã‚Šæ™‚é–“ã‚’æ¸›ã‚‰ã™
                 timeRemaining -= Time.deltaTime;
-                // c‚èŠÔ‚ğƒeƒLƒXƒg‚É•\¦i•b’PˆÊ‚Å•\¦j
+                // æ®‹ã‚Šæ™‚é–“ã‚’ãƒ†ã‚­ã‚¹ãƒˆã«è¡¨ç¤ºï¼ˆç§’å˜ä½ã§è¡¨ç¤ºï¼‰
                 countdownText.text = Mathf.Ceil(timeRemaining).ToString();
             }
             else
             {
-                // ƒJƒEƒ“ƒgƒ_ƒEƒ“I—¹‚Ìˆ—
+                // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³çµ‚äº†æ™‚ã®å‡¦ç†
                 timeRemaining = 0;
                 timerRunning = false;
                 countdownText.text = "Time's up!";

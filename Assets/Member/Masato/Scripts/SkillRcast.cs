@@ -1,28 +1,31 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillRcast : MonoBehaviour
 {
-    public Image imageComponent; // ƒtƒF[ƒhƒCƒ“‚³‚¹‚éImage
-    public ExsamplePlayre fadeFlags; // ƒtƒ‰ƒOŠÇ—ƒXƒNƒŠƒvƒg
-    public float fadeDuration = 5f; // ƒtƒF[ƒh‚É‚©‚¯‚éŠÔ
-    public int imageIndex; // ‘ÎÛ‚Æ‚È‚éImage‚Ì”Ô† (1`3)
+    [SerializeField]
+    private Image imageComponent; // ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã•ã›ã‚‹Image
+    public ExsamplePlayre fadeFlags; // ãƒ•ãƒ©ã‚°ç®¡ç†ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+    [SerializeField]
+    private float fadeDuration = 5f; // ãƒ•ã‚§ãƒ¼ãƒ‰ã«ã‹ã‘ã‚‹æ™‚é–“
+    [SerializeField]
+    private int imageIndex; // å¯¾è±¡ã¨ãªã‚‹Imageã®ç•ªå· (1ï½3)
 
-    public bool isFading = false; // ƒtƒF[ƒh’†‚©‚Ç‚¤‚©‚ğ¦‚·ƒtƒ‰ƒO
+    public bool isFading = false; // ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã‹ã©ã†ã‹ã‚’ç¤ºã™ãƒ•ãƒ©ã‚°
 
     void Start()
     {
-        // ‰Šú“§–¾“x‚ğİ’è (Š®‘S‚É“§–¾‚É‚·‚é)
+        // åˆæœŸé€æ˜åº¦ã‚’è¨­å®š (å®Œå…¨ã«é€æ˜ã«ã™ã‚‹)
         Color color = imageComponent.color;
-        color.a = 0f; // Å‰‚ÍŠ®‘S‚É“§–¾‚Éİ’è
+        color.a = 0f; // æœ€åˆã¯å®Œå…¨ã«é€æ˜ã«è¨­å®š
         imageComponent.color = color;
     }
 
     void Update()
     {
-        // ƒtƒF[ƒh’†‚Å‚È‚¢ê‡‚É‚Ì‚İˆ—‚ğs‚¤
+        // ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã§ãªã„å ´åˆã«ã®ã¿å‡¦ç†ã‚’è¡Œã†
         if (!isFading)
         {
             switch (imageIndex)
@@ -42,7 +45,7 @@ public class SkillRcast : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        isFading = true;  // ƒtƒF[ƒh’†ƒtƒ‰ƒO‚ğ—§‚Ä‚é
+        isFading = true;  // ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
 
         float elapsedTime = 0f;
         Color color = imageComponent.color;
@@ -52,16 +55,16 @@ public class SkillRcast : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / fadeDuration;
 
-            color.a = Mathf.Lerp(0.5f, 0f, t);
+            color.a = Mathf.Lerp(0.5f, 0.5f, t);
             imageComponent.color = color;
 
             yield return null;
         }
 
-        // ƒtƒF[ƒhƒCƒ“Š®—¹Œã‚É“§–¾“x‚ğ1‚Éİ’è
+        // ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³å®Œäº†å¾Œã«é€æ˜åº¦ã‚’1ã«è¨­å®š
         color.a = 0f;
         imageComponent.color = color;
-        isFading = false;  // ƒtƒF[ƒhŠ®—¹Œã‚Éƒtƒ‰ƒO‚ğ‰º‚°‚é
+        isFading = false;  // ãƒ•ã‚§ãƒ¼ãƒ‰å®Œäº†å¾Œã«ãƒ•ãƒ©ã‚°ã‚’ä¸‹ã’ã‚‹
         if(fadeFlags.fadeImage1)
         {
             fadeFlags.fadeImage1 = false;
@@ -70,12 +73,12 @@ public class SkillRcast : MonoBehaviour
         if (fadeFlags.fadeImage2)
         {
             fadeFlags.fadeImage2 = false;
-            Debug.Log("P1Cast2");
+            Debug.Log("P2Cast");
         }
         if (fadeFlags.fadeImage3)
         {
             fadeFlags.fadeImage3 = false;
-            Debug.Log("P1Cast3");
+            Debug.Log("P3Cast");
         }
     }
 }
