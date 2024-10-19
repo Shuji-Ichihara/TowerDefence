@@ -1,10 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExsamplePlayre : MonoBehaviour
 {
-    // ŠeImage‚É‘Î‰‚·‚éƒtƒ‰ƒO
+    //â€»å®Ÿé¨“ç”¨ã®ä»®ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+    // å„Imageã«å¯¾å¿œã™ã‚‹ãƒ•ãƒ©ã‚°(ã“ã‚Œã§æ•µã®ã‚¹ãƒãƒ¼ãƒ³ãƒªã‚­ãƒ£ã‚¹ãƒˆã‚’ç™ºç”Ÿã•ã›ã‚‹)
     public bool fadeImage1;
     public bool fadeImage2;
     public bool fadeImage3;
@@ -13,18 +14,18 @@ public class ExsamplePlayre : MonoBehaviour
 
     void Update()
     {
-        // —á‚¦‚ÎAƒL[“ü—Í‚Åƒtƒ‰ƒO‚ğØ‚è‘Ö‚¦‚é
+        // ä¾‹ãˆã°ã€ã‚­ãƒ¼å…¥åŠ›ã§ãƒ•ãƒ©ã‚°ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            fadeImage1 = true; // Image1‚ğƒtƒF[ƒhƒCƒ“
+            fadeImage1 = true; // Image1ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            fadeImage2 = true; // Image2‚ğƒtƒF[ƒhƒCƒ“
+            fadeImage2 = true; // Image2ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            fadeImage3 = true; // Image3‚ğƒtƒF[ƒhƒCƒ“
+            fadeImage3 = true; // Image3ã‚’ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³
         }
     }
 }
