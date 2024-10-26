@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,7 @@ public class CountDown : MonoBehaviour
         timerRunning = true;
     }
 
-    void Update()
+    async void Update()
     {
         if (timerRunning)
         {
@@ -32,7 +33,11 @@ public class CountDown : MonoBehaviour
                 // カウントダウン終了時の処理
                 timeRemaining = 0;
                 timerRunning = false;
-                countdownText.text = "Time's up!";
+                countdownText.text = "伝書は守られた！！";
+                await UniTask.Delay(3000);
+                SoundManager.instance.BGMPause();
+                SceneChangeManager.Instacnce.ChangeScene(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }

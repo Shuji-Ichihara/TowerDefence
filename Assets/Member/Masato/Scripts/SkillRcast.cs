@@ -67,17 +67,17 @@ public class SkillRcast : MonoBehaviour
         if(fadeFlags.fadeImage1)
         {
             fadeFlags.fadeImage1 = false;
-            Debug.Log("P1Cast");
+            //Debug.Log("P1Cast");
         }
         if (fadeFlags.fadeImage2)
         {
             fadeFlags.fadeImage2 = false;
-            Debug.Log("P2Cast");
+            //Debug.Log("P2Cast");
         }
         if (fadeFlags.fadeImage3)
         {
             fadeFlags.fadeImage3 = false;
-            Debug.Log("P3Cast");
+            //Debug.Log("P3Cast");
         }
     }
 }

@@ -46,38 +46,43 @@ public class PlayerController : MonoBehaviour
             {
                 //スクリーン座標からワールド座標に変換
                 Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                switch (character)
+                {
+                    case Chara.Player1:
+                        if (!fadeImage1)
+                        {
+                            Instantiate(Player1, worldPoint, Quaternion.identity);
+                            fadeImage1 = true; // Image1をフェードイン
+                        }
+                        break;
+                    case Chara.Player2:
+                        if (!fadeImage2)
+                        {
+                            Instantiate(Player2, worldPoint, Quaternion.identity);
+                            fadeImage2 = true; // Image2をフェードイン
+                        }
+                        break;
+                    case Chara.Player3:
+                        if (!fadeImage3)
+                        {
+                            Instantiate(Player3, worldPoint, Quaternion.identity);
+                            fadeImage3 = true; // Image3をフェードイン
+                        }
+                        break;
+                }
+                Count++;
+
+                /*
                 //レイを飛ばす
                 RaycastHit2D hit2d = Physics2D.Raycast(worldPoint, Vector2.zero);
 
                 //当たり判定が無かった場合
                 if (!hit2d)
                 {
-                    switch(character)
-                    {
-                        case Chara.Player1:
-                            if(!fadeImage1)
-                            {
-                                Instantiate(Player1, worldPoint, Quaternion.identity);
-                                fadeImage1 = true; // Image1をフェードイン
-                            }
-                            break;
-                        case Chara.Player2:
-                            if (!fadeImage2)
-                            {
-                                Instantiate(Player2, worldPoint, Quaternion.identity);
-                                fadeImage2 = true; // Image2をフェードイン
-                            }
-                            break;
-                        case Chara.Player3:
-                            if (!fadeImage3)
-                            {
-                                Instantiate(Player3, worldPoint, Quaternion.identity);
-                                fadeImage3 = true; // Image3をフェードイン
-                            }
-                            break;
-                    }
-                    Count++;
+                    
                 }
+
+                */
             }
         }
     }

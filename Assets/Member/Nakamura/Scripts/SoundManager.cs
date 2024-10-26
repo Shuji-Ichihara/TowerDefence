@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using System;
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
-using UnityEditor.SceneManagement;
-using Unity.VisualScripting;
 
 public class SoundManager : MonoBehaviour
 {
@@ -228,15 +224,16 @@ public class SoundManager : MonoBehaviour
     // BGMÅESEÇÃEnum
     public enum E_BGM
     {
-        BGM01,
+        Main,
         BGM02,
         BGM03
     }
 
     public enum E_SE
     {
-        SE01,
-        SE02,
-        SE03
+        Damage,
+        Sword,
+        Shield,
+        Arow,
     }
 }

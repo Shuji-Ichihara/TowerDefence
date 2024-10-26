@@ -24,7 +24,7 @@ public class TestSoundManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SoundManager.instance.PlaySE(SoundManager.E_SE.SE01);
+            //SoundManager.instance.PlaySE(SoundManager.E_SE.SE01);
         }
 
     }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
             _Hp = 180;
             _Speed = 0.3f;
         }
-        else if (_Enemy.name == "thief")
+        else if (_Enemy.name == "Thief")
         {
             _Hp = 60;
             _Speed = 0.7f;
@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //HP‚ª1ˆÈã‚¾‚Á‚½‚ç“`‘‚ÉŒü‚©‚Á‚ÄˆÚ“®
+        //HPãŒ1ä»¥ä¸Šã ã£ãŸã‚‰ä¼æ›¸ã«å‘ã‹ã£ã¦ç§»å‹•
         if (_Hp > 0)
         {
             if(_Playerdetection == false)
@@ -57,11 +57,11 @@ public class EnemyManager : MonoBehaviour
                 _Speed * Time.deltaTime);
             }
         }
-        //HP‚ª0ˆÈ‰º‚¾‚Á‚½‚ç©g‚ğíœ
-        //else if (_Hp <= 0)
-        //{ 
-        //    Destroy(this.gameObject);
-        //}
+        // HPãŒ0ä»¥ä¸‹ã ã£ãŸã‚‰è‡ªèº«ã‚’å‰Šé™¤
+        else if (_Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -71,16 +71,25 @@ public class EnemyManager : MonoBehaviour
             _TransmissonManager._Hp--;
             Destroy(this.gameObject);
         }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
         if (other.gameObject.CompareTag("Attack1"))
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             _Hp -= 60;
         }
         if (other.gameObject.CompareTag("Attack2"))
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             _Hp -= 30;
         }
         if (other.gameObject.CompareTag("Attack3"))
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             _Hp -= 120;
         }
     }

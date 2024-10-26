@@ -25,6 +25,8 @@ public class Character : MonoBehaviour
     void Start()
     {
         attack = false;
+        //var canvas = transform.root.GetComponentInChildren<Canvas>();
+        //canvas.worldCamera = GameObject.Find("UICamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,8 @@ public class Character : MonoBehaviour
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
+        yield return null;
 
         AttackRange.SetActive(false);
 
@@ -59,10 +62,11 @@ public class Character : MonoBehaviour
         attack = false;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Enemy1")
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             Hp -= 20;
             switch(type)
             {
@@ -79,6 +83,7 @@ public class Character : MonoBehaviour
         }
         else if (col.gameObject.tag == "Enemy2")
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             Hp -= 40;
             switch (type)
             {
@@ -95,6 +100,7 @@ public class Character : MonoBehaviour
         }
         else if (col.gameObject.tag == "Enemy3")
         {
+            SoundManager.instance.PlaySE(SoundManager.E_SE.Damage);
             Hp -= 10;
             switch (type)
             {

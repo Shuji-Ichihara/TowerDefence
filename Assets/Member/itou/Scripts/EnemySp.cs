@@ -1,71 +1,66 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySp : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("¶¬‚·‚éGameObject")]
+    [SerializeField, Tooltip("ç”Ÿæˆã™ã‚‹GameObject")]
     private GameObject FighterPrefab;
-    [SerializeField]
-    [Tooltip("¶¬‚·‚éGameObject")]
+    [SerializeField, Tooltip("ç”Ÿæˆã™ã‚‹GameObject")]
     private GameObject ShielderPrefab;
-    [SerializeField]
-    [Tooltip("¶¬‚·‚éGameObject")]
+    [SerializeField, Tooltip("ç”Ÿæˆã™ã‚‹GameObject")]
     private GameObject ThiefPrefab;
-    [SerializeField]
-    [Tooltip("¶¬‚·‚é”ÍˆÍA")]
-    private Transform rangeA;
-    [SerializeField]
-    [Tooltip("¶¬‚·‚é”ÍˆÍB")]
-    private Transform rangeB;
+    [SerializeField, Tooltip("ç”Ÿæˆã™ã‚‹ç¯„å›²A")]
+    private Transform rangeA = null;
+    [SerializeField, Tooltip("ç”Ÿæˆã™ã‚‹ç¯„å›²B")]
+    private Transform rangeB = null;
     [SerializeField]
     private int Hani;
 
     int _randomenemy;
-    // Œo‰ßŠÔ
+    // çµŒéæ™‚é–“
     private float time;
-    public float timeMax = 1f;
+    public float timeMax = 5f;
 
     // Update is called once per frame
     void Update()
     {
-            // ‘OƒtƒŒ[ƒ€‚©‚ç‚ÌŠÔ‚ğ‰ÁZ‚µ‚Ä‚¢‚­
-            time = time + Time.deltaTime;
+        // å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‹ã‚‰ã®æ™‚é–“ã‚’åŠ ç®—ã—ã¦ã„ã
+        time = time + Time.deltaTime;
 
-            // –ñ1•b’u‚«‚Éƒ‰ƒ“ƒ_ƒ€‚É¶¬‚³‚ê‚é‚æ‚¤‚É‚·‚éB
-            if (time > timeMax)
+        // ç´„1ç§’ç½®ãã«ãƒ©ãƒ³ãƒ€ãƒ ã«ç”Ÿæˆã•ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+        if (time > timeMax)
+        {
+            // rangeAã¨rangeBã®xåº§æ¨™ã®ç¯„å›²å†…ã§ãƒ©ãƒ³ãƒ€ãƒ ãªæ•°å€¤ã‚’ä½œæˆ
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            // rangeAã¨rangeBã®yåº§æ¨™ã®ç¯„å›²å†…ã§ãƒ©ãƒ³ãƒ€ãƒ ãªæ•°å€¤ã‚’ä½œæˆ
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            // GameObjectã‚’ä¸Šè¨˜ã§æ±ºã¾ã£ãŸãƒ©ãƒ³ãƒ€ãƒ ãªå ´æ‰€ã«ç”Ÿæˆ
+            _randomenemy = Random.Range(0, 3);
+            while (-Hani <= x && x <= Hani && -Hani <= y && y <= Hani)
             {
-                // rangeA‚ÆrangeB‚ÌxÀ•W‚Ì”ÍˆÍ“à‚Åƒ‰ƒ“ƒ_ƒ€‚È”’l‚ğì¬
-                float x = Random.Range(rangeA.position.x, rangeB.position.x);
-                // rangeA‚ÆrangeB‚ÌyÀ•W‚Ì”ÍˆÍ“à‚Åƒ‰ƒ“ƒ_ƒ€‚È”’l‚ğì¬
-                float y = Random.Range(rangeA.position.y, rangeB.position.y);
-                // GameObject‚ğã‹L‚ÅŒˆ‚Ü‚Á‚½ƒ‰ƒ“ƒ_ƒ€‚ÈêŠ‚É¶¬
-                _randomenemy = Random.Range(0, 3);
-                while(-Hani <= x && x <= Hani && -Hani <= y && y <= Hani)
-                {
-                    x = Random.Range(rangeA.position.x, rangeB.position.x);
-                    y = Random.Range(rangeA.position.y, rangeB.position.y);
-                }
-                if (_randomenemy == 0)
-                {
-                    var enemy = Instantiate(FighterPrefab, new Vector2(x, y), FighterPrefab.transform.rotation);
-                    enemy.name = FighterPrefab.name;  
-                }
-                else if (_randomenemy == 1)
-                {
-                    var enemy = Instantiate(ShielderPrefab, new Vector2(x, y), ShielderPrefab.transform.rotation);
-                    enemy.name = ShielderPrefab.name;
+                x = Random.Range(rangeA.position.x, rangeB.position.x);
+                y = Random.Range(rangeA.position.y, rangeB.position.y);
             }
-                else if (_randomenemy == 2)
-                {
-                    var enemy = Instantiate(ThiefPrefab, new Vector2(x, y), ThiefPrefab.transform.rotation);
-                    enemy.name = ThiefPrefab.name;
+            if (_randomenemy == 0)
+            {
+                var enemy = Instantiate(FighterPrefab, new Vector2(x, y), FighterPrefab.transform.rotation);
+                enemy.name = FighterPrefab.name;
+            }
+            else if (_randomenemy == 1)
+            {
+                var enemy = Instantiate(ShielderPrefab, new Vector2(x, y), ShielderPrefab.transform.rotation);
+                enemy.name = ShielderPrefab.name;
+            }
+            else if (_randomenemy == 2)
+            {
+                var enemy = Instantiate(ThiefPrefab, new Vector2(x, y), ThiefPrefab.transform.rotation);
+                enemy.name = ThiefPrefab.name;
             }
 
-                // Œo‰ßŠÔƒŠƒZƒbƒg
-                time = 0f;
-            }
+            // çµŒéæ™‚é–“ãƒªã‚»ãƒƒãƒˆ
+            time = 0f;
+        }
 
     }
 }

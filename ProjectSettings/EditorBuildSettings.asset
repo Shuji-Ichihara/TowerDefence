@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Member/itou/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Member/keisuke/Title.unity
+    guid: 30df53f218bd9de4f8d62fb8d4ca4c63
+  - enabled: 1
+    path: Assets/Member/Ichihara/Scenes/GameScene.unity
+    guid: b329fb8de1f2fc64bb95f6f4c41625ca
+  - enabled: 1
+    path: Assets/Member/keisuke/Game Clear.unity
+    guid: 5fdb860b347a27944877c6aa51fc9449
+  - enabled: 1
+    path: Assets/Member/keisuke/Game Over.unity
+    guid: ca1ec4bdad1103e4fa2593c859171685
   m_configObjects: {}
